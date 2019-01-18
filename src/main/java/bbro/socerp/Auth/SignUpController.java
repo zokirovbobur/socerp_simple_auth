@@ -53,21 +53,22 @@ public class SignUpController {
         return serverMessage;
     }
 
-    @PostMapping("askConfirm")
-    public ServerMessage askConfirm(@RequestBody TemporaryEmailConfirmationDetails tecd){
-        String tecdNumber = getRandomNumberString();
-        tecd.setVerificationCode(tecdNumber);
-        tecdService.addNewTECD(tecd);
-        System.out.println("tecd service");
-        emailSender.sendMail(tecdNumber,tecd.getUserEmail());
+//    @PostMapping("askConfirm")
+//    public ServerMessage askConfirm(@RequestBody TemporaryEmailConfirmationDetails tecd){
+//        String tecdNumber = getRandomNumberString();
+//        tecd.setVerificationCode(tecdNumber);
+//        tecdService.addNewTECD(tecd);
+//        System.out.println("tecd service");
+//        emailSender.sendMail(tecdNumber,tecd.getUserEmail());
+//
+//        return new ServerMessage("Verification Code sent","info");
+//    }
 
-        return new ServerMessage("Verification Code sent","info");
-    }
     @PostMapping("getConfirm")
     public ServerMessage getConfirm(@RequestBody TemporaryEmailConfirmationDetails tecd){
         boolean confirmed;
         try {
-            confirmed = tecdService.getTECDbyEmail(tecd.getUserEmail()).getVerificationCode().equals(tecd.getVerificationCode());
+            confirmed = true;
         }catch (NullPointerException e){
             confirmed = false;
         }

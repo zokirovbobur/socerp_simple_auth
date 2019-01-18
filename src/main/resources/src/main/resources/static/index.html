@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rest API list</title>
+    <style>
+        body{
+            background-color: cadetblue;
+        }
+        h1,h2,h3{
+            color: azure;
+        }
+        .mainURL{
+            color: brown;
+            font-weight: bold;
+            font-size: x-large;
+        }
+        .url{
+            color: firebrick;
+            font-weight: bold;
+        }
+        .method{
+            color: greenyellow;
+        }
+        .name{
+            color: antiquewhite;
+        }
+        .jsonBody{
+            color: antiquewhite;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+<h1>Documentation for https://socerpsimpleauth.herokuapp.com/</h1>
+<h3>Response server message sample: </h3>
+<pre class="jsonBody">
+    ServerMessage:
+    {
+    "messageType":"String",
+    "message":"String",
+    "userId":"Long",
+    }
+</pre>
+<br>
+<h2>Rest API for Sign Up authentication</h2>
+<p class="mainURL">URL:  https://socerpsimpleauth.herokuapp.com/auth</p>
+
+<h3>List of url</h3>
+<p class="name">checking if username is free</p><p class="method">(method="GET")</p>
+<p class="url">URL/usernameisfree/{username}</p>
+<p class="name">response ServerMessage </p>
+<br>
+<p class="name">checking if email is free</p><p class="method">(method="GET")</p>
+<p class="url">URL/emailisfree/{username}</p>
+<p class="name">response ServerMessage </p>
+<br>
+<p class="name">confirm email verification</p><p class="method">(method="POST")</p>
+<p class="url">URL/getConfirm</p>
+<pre class="jsonBody">
+    request json sample:  {
+    "userEmail":"userEmail@mail.mail",
+    "verificationCode":"XXXXXX"
+    }
+</pre>
+<p class="name">response ServerMessage with userId</p>
+<br>
+<p class="name">Adding new Password for new user</p><p class="method">(method="PUT")</p>
+<p class="url">URL/updateUser</p>
+<pre class="jsonBody">
+    request json sample:  {
+    "userId":"Long",
+    "userName":"String",
+    "email":"String",
+    "password":"String"
+    }
+    Extra info:
+    userId is Required
+    Others not!
+</pre>
+<p class="name">response Nothing</p>
+
+<br>
+<h2>Rest API for Login</h2>
+<p class="mainURL">URL:  https://socerpsimpleauth.herokuapp.com/login</p>
+
+<h3>List of url</h3>
+<p class="name">checking if username is free</p><p class="method">(method="POST")</p>
+<p class="url">URL/</p>
+<pre class="jsonBody">
+    request json sample:  {
+    "userName":"String",
+    "password":"String"
+    }
+</pre>
+<p class="name">response ServerMessage with userId</p>
+<br>
+
+</body>
+</html>

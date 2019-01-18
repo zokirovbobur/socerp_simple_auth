@@ -14,6 +14,7 @@ public class Users {
     @Column(unique = true)
     private String email;
 
+    private String fullName;
     private String password;
     private boolean isEmailConfirmed;
 
@@ -73,6 +74,14 @@ public class Users {
         isEmailConfirmed = emailConfirmed;
     }
 
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+    
     @Override
     public String toString() {
         return "Users{" +

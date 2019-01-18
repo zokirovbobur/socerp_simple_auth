@@ -77,7 +77,7 @@ public class SignUpController {
             serverMessage.setMessage("confirmed");
 
             Users user = new Users("",tecd.getUserEmail());
-            usersService.getUserByEmail(tecd.getUserEmail());
+           // usersService.getUserByEmail(tecd.getUserEmail());
             try {
                 usersService.addUser(user);
                // usersService.setUserById(user);
